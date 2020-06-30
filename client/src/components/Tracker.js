@@ -19,8 +19,7 @@ class Tracker extends React.Component {
     }
 
     componentDidMount() {
-        const userId = this.props.user.id
-        this.props.fetchItems(userId)
+        this.props.fetchItems(this.props.user.id)
     };
 
     redirect = () => {
@@ -101,11 +100,15 @@ class Tracker extends React.Component {
     };
 };
 
-const mapDispatchToProps = state => {
+const mapDispatchToProps = (dispatch) => {
+    return {fetchItems: (userId) => dispatch(fetchItems(userId))}
+};
+
+const mapStateToProps = (state) => {
     return {
-        logoutUser: state.logoutUser,
+        user: state.user,
         items: state.items
     }
-}
+};
 
-export default connect(mapDispatchToProps, { fetchItems })(Tracker);
+export default connect(mapStateToProps, mapDispatchToProps)(Tracker);
