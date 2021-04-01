@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'fast_jsonapi'
-gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'json', '~> 2.3'
 gem 'http'
 gem 'unf_ext', '~> 0.0.7.7'
 
